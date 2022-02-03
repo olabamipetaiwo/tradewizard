@@ -3,7 +3,7 @@ import { useContext, Fragment } from "react";
 import toast from "react-hot-toast";
 import BookContext from "context/Book/BookContext";
 import StepContext from "context/Step/StepContext";
-import { capitalizeWord } from "utils/common";
+import { capitalizeFirstWord } from "utils/common";
 
 const GenreForm = () => {
   const { newBook, genres, saveBookGenre } = useContext(BookContext);
@@ -36,7 +36,7 @@ const GenreForm = () => {
                   item.id === newBook?.genre?.id ? "active" : ""
                 }`}
               >
-                {capitalizeWord(item.name)}
+                {capitalizeFirstWord(item.name)}
               </button>
             );
           })}
