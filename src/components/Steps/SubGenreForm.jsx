@@ -5,7 +5,7 @@ import StepContext from "context/Step/StepContext";
 import { capitalizeWord } from "utils/common";
 
 const SubGenreForm = () => {
-  const { newBook, subgenres, genres, saveBookSubGenre } = useContext(BookContext);
+  const { newBook, subgenres, saveBookSubGenre } = useContext(BookContext);
   const { isAddNewSubGenreActive, changeActiveStep, showAddNewSubGenre } =
     useContext(StepContext);
 

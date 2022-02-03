@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 import { useContext, Fragment } from "react";
 import toast from "react-hot-toast";
 import BookContext from "context/Book/BookContext";
@@ -23,12 +24,14 @@ const GenreForm = () => {
   return (
     <Fragment>
       <section className="steps__content mb-sm">
-        <section className="flex flex-wrap">
+        <section className="flex flex-wrap" data-testid="genre-list">
           {genres.map((item) => {
             return (
               <button
+                role="genre-button"
                 onClick={handleClick.bind(this, item)}
                 key={item.name}
+                data-testid={`genre-item-${item.id}`}
                 className={`btn btn-outline mr-xs mb-sm ${
                   item.id === newBook?.genre?.id ? "active" : ""
                 }`}
@@ -40,7 +43,12 @@ const GenreForm = () => {
         </section>
 
         <section className="flex align-center justify-end steps__actions">
-          <button type="button" onClick={moveStep} className="btn btn-primary">
+          <button
+            type="button"
+            onClick={moveStep}
+            data-testid="move-step"
+            className="btn btn-primary"
+          >
             Next
           </button>
         </section>

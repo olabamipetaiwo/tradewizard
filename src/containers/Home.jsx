@@ -7,11 +7,31 @@ import "./home.scss";
 
 const Home = () => {
   const { activeStep, steps, changeActiveStep } = useContext(StepContext);
-  const { books, genres, newBookCreated, resetState } = useContext(BookContext);
+  const { books, newBook, newBookCreated, isAddNewSubGenreActive, resetState } =
+    useContext(BookContext);
 
   const resetFlow = () => {
     resetState();
     changeActiveStep(1);
+  };
+
+  const stepClick = (currentStep) => {
+    switch (currentStep) {
+      case 1:
+        changeActiveStep(currentStep);
+        break;
+      case 2:
+      case 3:
+        newBook.genre && changeActiveStep(currentStep);
+        break;
+      case 4:
+        newBook.genre &&
+          newBook.subgenre &&
+          changeActiveStep(isAddNewSubGenreActive ? 3 : 4);
+        break;
+      default:
+        return;
+    }
   };
 
   return (
@@ -52,6 +72,7 @@ const Home = () => {
                           className={`flex flex-col steps__item ${
                             completed ? "active" : ""
                           }`}
+                          onClick={() => stepClick(item.id)}
                         >
                           <>
                             <button>{id + 1}</button>
