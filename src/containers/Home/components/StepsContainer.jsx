@@ -1,65 +1,5 @@
-import { ReactComponent as DoneIcon } from "assets/done.svg";
-import { capitalizeFirstWord } from "utils/common";
 import useBook from "hooks/useBook";
 import useStep from "hooks/useStep";
-import "./home.scss";
-
-const Home = () => {
-  const { books, newBookCreated } = useBook();
-
-  return (
-    <main className="main">
-      <section className="content flex flex-col align-center pt-lg">
-        <h2 className="h-title text-center mb-sm"> TradeCore Wizard</h2>
-
-        {newBookCreated ? <SuccessModal /> : <StepsContainer />}
-
-        <section className="main__container mt-lg">
-          <h2 className="h-title mb-sm">Book Listing</h2>
-          <section className="books__container mb-sm">
-            <ul>
-              {books.length > 0 ? (
-                books.map((book) => {
-                  return (
-                    <li key={book.title + book.id} className="p-title mb-xs">
-                      {capitalizeFirstWord(book.title)}
-                    </li>
-                  );
-                })
-              ) : (
-                <li>No Books in Library Yet</li>
-              )}
-            </ul>
-          </section>
-        </section>
-      </section>
-    </main>
-  );
-};
-
-const SuccessModal = () => {
-  const { changeActiveStep } = useStep();
-  const { resetState } = useBook();
-
-  const resetFlow = () => {
-    resetState();
-    changeActiveStep(1);
-  };
-
-  return (
-    <section className="form__container flex flex-col justify-center align-center p-xl">
-      <div className="circle mb-lg">
-        <figure>
-          <DoneIcon />
-        </figure>
-      </div>
-      <h2 className="h-1 mb-lg">Book added successfully</h2>
-      <button className="btn btn-primary" onClick={resetFlow}>
-        Add Another Book
-      </button>
-    </section>
-  );
-};
 
 const StepsContainer = () => {
   const { activeStep, steps, changeActiveStep } = useStep();
@@ -124,4 +64,4 @@ const StepsContainer = () => {
   );
 };
 
-export default Home;
+export default StepsContainer;

@@ -2,6 +2,8 @@ import React, { useReducer } from "react";
 import BookContext from "./BookContext";
 import BookReducer from "./BookReducer";
 import { GENRES } from "utils/common";
+import { fakeFetch } from "utils/common";
+import toast from "react-hot-toast";
 
 import {
   SAVE_GENRE,
@@ -26,10 +28,15 @@ const BookState = (props) => {
   const [state, dispatch] = useReducer(BookReducer, initialState);
 
   const saveBookToCatalogue = async (bookPayload) => {
-    dispatch({
-      type: SAVE_BOOK,
-      payload: bookPayload,
-    });
+    try {
+      await fakeFetch(bookPayload);
+      dispatch({
+        type: SAVE_BOOK,
+        payload: bookPayload,
+      });
+    } catch (err) {
+      toast.error("Error saving book to catalogue,please try again");
+    }
   };
 
   const saveBookGenre = (genrePayload) => {
