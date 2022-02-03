@@ -4,7 +4,7 @@ import BookContext from "context/Book/BookContext";
 import StepContext from "context/Step/StepContext";
 
 const AddSubGenreForm = () => {
-  const { newBook, subgenres, addGenreSubGenre } = useContext(BookContext);
+  const { subgenres, addGenreSubGenre } = useContext(BookContext);
   const { changeActiveStep } = useContext(StepContext);
   const [subGenre, setSubGenre] = useState({
     name: "",

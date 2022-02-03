@@ -4,9 +4,9 @@ import StepReducer from "./StepReducer";
 import { CHANGE_STEP, ACTIVATE_ADD_NEW_SUBGENRE } from "../types";
 
 import GenreForm from "components/Steps/GenreForm";
-import SubGenreForm from "components/Steps/SubGenreForm";
+import SubGenreForm from "components/Steps/SubgenreForm";
 import BookForm from "components/Steps/BookForm";
-import AddSubGenreForm from "components/Steps/AddSubGenreForm";
+import AddSubGenreForm from "components/Steps/SubgenreForm/AddSubGenreForm";
 
 const StepState = (props) => {
   const initialState = {
