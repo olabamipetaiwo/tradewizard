@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import toast from "react-hot-toast";
-import BookContext from "context/Book/BookContext";
-import StepContext from "context/Step/StepContext";
+import useBook from "hooks/useBook";
+import useStep from "hooks/useStep";
 import { capitalizeFirstWord } from "utils/common";
 
 const SubGenreForm = () => {
-  const { newBook, subgenres, saveBookSubGenre } = useContext(BookContext);
+  const { newBook, subgenres, saveBookSubGenre } = useBook();
   const { isAddNewSubGenreActive, changeActiveStep, showAddNewSubGenre } =
-    useContext(StepContext);
+    useStep();
 
   const handleClick = (chosenGenre) => {
     saveBookSubGenre(chosenGenre);

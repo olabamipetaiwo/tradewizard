@@ -1,11 +1,12 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
-import BookContext from "context/Book/BookContext";
-import StepContext from "context/Step/StepContext";
+import useBook from "hooks/useBook";
+import useStep from "hooks/useStep";
 
 const AddSubGenreForm = () => {
-  const { subgenres, addGenreSubGenre } = useContext(BookContext);
-  const { changeActiveStep } = useContext(StepContext);
+  const { subgenres, addGenreSubGenre } = useBook();
+  const { changeActiveStep } = useStep();
+  
   const [subGenre, setSubGenre] = useState({
     name: "",
     isDescriptionRequired: false,

@@ -1,13 +1,11 @@
-import { useContext } from "react";
-// import toast from "react-hot-toast";
-import BookContext from "context/Book/BookContext";
-import StepContext from "context/Step/StepContext";
+import useBook from "hooks/useBook";
+import useStep from "hooks/useStep";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const BookForm = () => {
-  const { newBook, saveBookToCatalogue } = useContext(BookContext);
-  const { isAddNewSubGenreActive, changeActiveStep } = useContext(StepContext);
+  const { newBook, saveBookToCatalogue } = useBook();
+  const { isAddNewSubGenreActive, changeActiveStep } = useStep();
 
   const moveStep = () => {
     changeActiveStep(isAddNewSubGenreActive ? 3 : 2);

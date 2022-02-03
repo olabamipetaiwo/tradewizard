@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/aria-role */
-import { useContext, Fragment } from "react";
+import { Fragment } from "react";
 import toast from "react-hot-toast";
-import BookContext from "context/Book/BookContext";
-import StepContext from "context/Step/StepContext";
+import useBook from "hooks/useBook";
+import useStep from "hooks/useStep";
 import { capitalizeFirstWord } from "utils/common";
 
 const GenreForm = () => {
-  const { newBook, genres, saveBookGenre } = useContext(BookContext);
-  const { changeActiveStep } = useContext(StepContext);
+  const { newBook, genres, saveBookGenre } = useBook();
+  const { changeActiveStep } = useStep();
 
   const handleClick = (chosenGenre) => {
     saveBookGenre(chosenGenre);

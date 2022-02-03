@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import StepContext from "context/Step/StepContext";
-import BookContext from "context/Book/BookContext";
 import { ReactComponent as DoneIcon } from "assets/done.svg";
 import { capitalizeFirstWord } from "utils/common";
+import useBook from "hooks/useBook";
+import useStep from "hooks/useStep";
 import "./home.scss";
 
 const Home = () => {
-  const { books, newBookCreated } = useContext(BookContext);
+  const { books, newBookCreated } = useBook();
 
   return (
     <main className="main">
@@ -39,8 +38,8 @@ const Home = () => {
 };
 
 const SuccessModal = () => {
-  const { changeActiveStep } = useContext(StepContext);
-  const { resetState } = useContext(BookContext);
+  const { changeActiveStep } = useStep();
+  const { resetState } = useBook();
 
   const resetFlow = () => {
     resetState();
@@ -63,8 +62,8 @@ const SuccessModal = () => {
 };
 
 const StepsContainer = () => {
-  const { activeStep, steps, changeActiveStep } = useContext(StepContext);
-  const { newBook, isAddNewSubGenreActive } = useContext(BookContext);
+  const { activeStep, steps, changeActiveStep } = useStep();
+  const { newBook, isAddNewSubGenreActive } = useBook();
 
   const handleStepClick = (currentStep) => {
     switch (currentStep) {
