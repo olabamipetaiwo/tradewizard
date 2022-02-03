@@ -3,9 +3,8 @@ import toast from "react-hot-toast";
 import BookContext from "context/Book/BookContext";
 import StepContext from "context/Step/StepContext";
 
-
 const AddSubGenreForm = () => {
-  const { newBook, addGenreSubGenre } = useContext(BookContext);
+  const { newBook, subgenres, addGenreSubGenre } = useContext(BookContext);
   const { changeActiveStep } = useContext(StepContext);
   const [subGenre, setSubGenre] = useState({
     name: "",
@@ -35,14 +34,13 @@ const AddSubGenreForm = () => {
     if (subGenre.name.length < 1) {
       toast.error("Name of subgenre is required");
     } else {
-      // const lastId =
-      //   newBook.genre.subgenres[genre.subgenres.length - 1].id;
-      // let subGenrePayload = {
-      //   id: lastId + 1,
-      //   ...subGenre,
-      // };
-      // await addGenreSubGenre(subGenrePayload);
-      // handleStep(2);
+      const lastId = subgenres[subgenres.length - 1].id;
+      let subGenrePayload = {
+        id: lastId + 1,
+        ...subGenre,
+      };
+      await addGenreSubGenre(subGenrePayload);
+      handleStep(2);
     }
   };
 
