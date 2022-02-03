@@ -155,6 +155,7 @@ const BookForm = () => {
             <textarea
               name="description"
               placeholder="Description"
+              {...formik.getFieldProps("description")}
               required={newBook.subgenre?.isDescriptionRequired ? true : false}
             ></textarea>
             {formik.touched.description && formik.errors.description ? (
