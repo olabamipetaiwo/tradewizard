@@ -2,8 +2,9 @@
   @include btnGeneric;
   color: $white;
   @include flexCenter;
+  text-align: center;
   padding: 1rem 2rem;
-  min-width: 12rem;
+  min-width: 10rem;
 
   &-outline {
     color: $primary;

@@ -1,6 +1,8 @@
 import React, { useReducer } from "react";
 import BookContext from "./BookContext";
 import BookReducer from "./BookReducer";
+import { GENRES } from "utils/common";
+
 import {
   SAVE_GENRE,
   SAVE_SUBGENRE,
@@ -16,6 +18,8 @@ const BookState = (props) => {
       genre: null,
       subgenre: null,
     },
+    genres: [...GENRES],
+    subgenres: [],
     newBookCreated: false,
   };
 
@@ -59,6 +63,8 @@ const BookState = (props) => {
     <BookContext.Provider
       value={{
         books: state.books,
+        genres: state.genres,
+        subgenres: state.subgenres,
         newBook: state.newBook,
         newBookCreated: state.newBookCreated,
         saveBookGenre,

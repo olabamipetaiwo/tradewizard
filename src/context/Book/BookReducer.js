@@ -6,6 +6,18 @@ import {
   RESET_FLAG,
 } from "../types";
 
+const getUpdatedGenre = (state, payload) => {
+  const existingGenres = state.genres.slice();
+  const targetGenreIndex = existingGenres.findIndex(
+    (genre) => genre.id === state.newBook.genre.id
+  );
+  const targetGenre = { ...existingGenres[targetGenreIndex] };
+  const newSubgenres = [...targetGenre.subgenres, payload];
+  targetGenre.subgenres = newSubgenres;
+  existingGenres[targetGenreIndex] = targetGenre;
+  return existingGenres;
+};
+
 const BookReducer = (state, action) => {
   switch (action.type) {
     case SAVE_BOOK:
@@ -35,6 +47,7 @@ const BookReducer = (state, action) => {
           ...state.newBook,
           genre: { ...action.payload },
         },
+        subgenres: [...action.payload.subgenres],
       };
     case SAVE_SUBGENRE:
       return {
@@ -47,21 +60,14 @@ const BookReducer = (state, action) => {
     case ADD_SUBGENRE:
       return {
         ...state,
-        newBook: {
-          ...state.newBook,
-          genre: {
-            ...state.newBook.genre,
-            subgenres: [...state.newBook.genre.subgenres, action.payload],
-          },
-        },
+        genres: getUpdatedGenre(state, action.payload),
+        subgenres: [...state.subgenres, action.payload],
       };
     case RESET_FLAG:
       return {
         ...state,
-        newBook: {
-          genre: null,
-          subgenre: null,
-        },
+        newBook: null,
+        subgenres: [],
         newBookCreated: false,
       };
     default:

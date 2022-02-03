@@ -2,9 +2,10 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import BookContext from "context/Book/BookContext";
 import StepContext from "context/Step/StepContext";
+import { capitalizeWord } from "utils/common";
 
 const SubGenreForm = () => {
-  const { newBook, saveBookSubGenre } = useContext(BookContext);
+  const { newBook, subgenres, genres, saveBookSubGenre } = useContext(BookContext);
   const { isAddNewSubGenreActive, changeActiveStep, showAddNewSubGenre } =
     useContext(StepContext);
 
@@ -27,16 +28,16 @@ const SubGenreForm = () => {
   return (
     <section className="steps__content mb-sm">
       <div className="flex flex-wrap">
-        {newBook.genre.subgenres.map((item) => {
+        {subgenres.map((item) => {
           return (
             <button
               onClick={handleClick.bind(this, item)}
               key={item.name}
-              className={`btn btn-outline mr-sm mb-sm ${
+              className={`btn btn-outline mr-xs mb-sm ${
                 item.id === newBook?.subgenre?.id ? "active" : ""
               }`}
             >
-              {item.name}
+              {capitalizeWord(item.name)}
             </button>
           );
         })}

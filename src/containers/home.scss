@@ -1,13 +1,17 @@
 @import '../styles/abstract/common';
 
-.form__container,
-.books__container {
-  width: 90rem;
+.main__container {
+  width: 75rem;
   background-color: $light-grey;
   background-color: $white;
   border: 1px solid #eff0f6;
   padding: 3rem;
   border-radius: 12px;
+
+  @include respond(tab-port) {
+    width: 75%;
+    margin: auto;
+  }
 }
 
 .steps {
@@ -64,13 +68,6 @@
     background-color: $grey-9;
     margin-bottom: 1rem;
   }
-
-  &__actions {
-  }
-}
-
-.basis-48 {
-  flex-basis: 48%;
 }
 
 .circle {

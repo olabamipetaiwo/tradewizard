@@ -122,8 +122,8 @@ const BookForm = () => {
               <p className="error">{formik.errors.format}</p>
             ) : null}
           </div>
-          <div className="flex justify-between">
-            <div className="basis-48 form__group mb-sm  ">
+          <div className="row">
+            <div className="row-half form__group mb-sm  ">
               <label>Book Edition</label>
               <input
                 type="text"
@@ -135,7 +135,7 @@ const BookForm = () => {
                 <p className="error">{formik.errors.edition}</p>
               ) : null}
             </div>
-            <div className="basis-48 form__group mb-sm ">
+            <div className="row-half form__group mb-sm ">
               <label>Edition Language</label>
               <select
                 name="edition_language"

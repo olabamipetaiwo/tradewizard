@@ -7,7 +7,7 @@ import "./home.scss";
 
 const Home = () => {
   const { activeStep, steps, changeActiveStep } = useContext(StepContext);
-  const { books, newBookCreated, resetState } = useContext(BookContext);
+  const { books, genres, newBookCreated, resetState } = useContext(BookContext);
 
   const resetFlow = () => {
     resetState();
@@ -35,7 +35,7 @@ const Home = () => {
           </>
         ) : (
           <>
-            <section className="form__container">
+            <section className="main__container">
               <h6 className="p-title pb-sm"> Add Book - New Book</h6>
               {/* Indicator */}
               <section className="steps__indicator mb-sm">
@@ -77,8 +77,9 @@ const Home = () => {
           </>
         )}
 
-        <section className="book__listing mt-lg">
+        <section className="main__container mt-lg">
           <h2 className="h-title mb-sm">Book Listing</h2>
+          {/* <p>{JSON.stringify(genres)} </p> */}
           <section className="books__container mb-sm">
             <ul>
               {books.length > 0 ? (

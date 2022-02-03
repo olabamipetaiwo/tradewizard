@@ -1,11 +1,11 @@
 import { useContext, Fragment } from "react";
-import { GENRES } from "utils/common";
 import toast from "react-hot-toast";
 import BookContext from "context/Book/BookContext";
 import StepContext from "context/Step/StepContext";
+import { capitalizeWord } from "utils/common";
 
 const GenreForm = () => {
-  const { newBook, saveBookGenre } = useContext(BookContext);
+  const { newBook, genres, saveBookGenre } = useContext(BookContext);
   const { changeActiveStep } = useContext(StepContext);
 
   const handleClick = (chosenGenre) => {
@@ -24,16 +24,16 @@ const GenreForm = () => {
     <Fragment>
       <section className="steps__content mb-sm">
         <section className="flex flex-wrap">
-          {GENRES.map((item) => {
+          {genres.map((item) => {
             return (
               <button
                 onClick={handleClick.bind(this, item)}
                 key={item.name}
-                className={`btn btn-outline mr-sm mb-sm ${
+                className={`btn btn-outline mr-xs mb-sm ${
                   item.id === newBook?.genre?.id ? "active" : ""
                 }`}
               >
-                {item.name}
+                {capitalizeWord(item.name)}
               </button>
             );
           })}

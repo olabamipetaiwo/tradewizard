@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import BookContext from "context/Book/BookContext";
 import StepContext from "context/Step/StepContext";
+
 
 const AddSubGenreForm = () => {
   const { newBook, addGenreSubGenre } = useContext(BookContext);
@@ -29,16 +30,20 @@ const AddSubGenreForm = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    const lastId =
-      newBook.genre.subgenres[newBook.genre.subgenres.length - 1].id;
-    let subGenrePayload = {
-      id: lastId + 1,
-      ...subGenre,
-    };
-    console.log(subGenrePayload);
-    await addGenreSubGenre(subGenrePayload);
-    handleStep(2);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (subGenre.name.length < 1) {
+      toast.error("Name of subgenre is required");
+    } else {
+      const lastId =
+        newBook.genre.subgenres[newBook.genre.subgenres.length - 1].id;
+      let subGenrePayload = {
+        id: lastId + 1,
+        ...subGenre,
+      };
+      await addGenreSubGenre(subGenrePayload);
+      handleStep(2);
+    }
   };
 
   return (

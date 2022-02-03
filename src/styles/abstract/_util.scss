@@ -206,6 +206,23 @@
   align-items: flex-end;
 }
 
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  @include respond(lg-tab) {
+    flex-wrap: wrap;
+  }
+
+  &-half {
+    flex-basis: 48%;
+    
+    @include respond(lg-tab) {
+      flex-basis: 100%;
+    }
+  }
+}
+
 //Colors
 .primary {
   color: $primary;
