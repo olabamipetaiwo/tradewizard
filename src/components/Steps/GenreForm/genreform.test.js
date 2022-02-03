@@ -21,18 +21,18 @@ describe("App", () => {
     expect(genreOneButton.classList.contains("active")).toBe(true);
   });
 
-  it("Renders <GenreForm/> component and I can select a genre", async () => {
-    render(<GenreForm />);
-    GENRES.slice().forEach((genre) => {
-      expect(screen.getByText(genre.name)).toBeInTheDocument();
-    });
+  // it("Renders <GenreForm/> component and I can select a genre", async () => {
+  //   render(<GenreForm />);
+  //   GENRES.slice().forEach((genre) => {
+  //     expect(screen.getByText(genre.name)).toBeInTheDocument();
+  //   });
 
-    const genreOneButton = screen.getByTestId("genre-item-1");
-    fireEvent.click(genreOneButton);
-    expect(genreOneButton.classList.contains("active")).toBe(true);
+  //   const genreOneButton = screen.getByTestId("genre-item-1");
+  //   fireEvent.click(genreOneButton);
+  //   expect(genreOneButton.classList.contains("active")).toBe(true);
 
-    const stepOneNextButton = screen.getByTestId("move-step");
-    fireEvent.click(stepOneNextButton);
-    // expect(screen.queryByText("Genre 1")).not.toBeInTheDocument();
-  });
+  //   const stepOneNextButton = screen.getByTestId("move-step");
+  //   fireEvent.click(stepOneNextButton);
+  //   // expect(screen.queryByText("Genre 1")).not.toBeInTheDocument();
+  // });
 });
