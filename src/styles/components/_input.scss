@@ -1,0 +1,118 @@
+.form__group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.5rem;
+    @include fontNormal(1.4rem, 2rem, $primary);
+  }
+
+  input,
+  textarea {
+    background: transparent;
+    border: 1px solid $primary;
+    outline: none;
+    transition: all 0.2s;
+    @include fontNormal(1.4rem, 2rem, $primary);
+    border-radius: 4px;
+    padding: 1rem;
+
+    &:focus {
+      outline: none;
+
+      &:invalid {
+        border: 1px solid $danger;
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      @include fontNormal(1.6rem, 2rem, $primary);
+      opacity: 0.5;
+    }
+  }
+
+  select {
+    background-color: transparent;
+    background-image: url('../../assets/select.svg');
+    background-repeat: no-repeat;
+    background-position: 97% 50% !important;
+    border: none;
+    @include fontNormal(1.6rem, 2rem, $primary);
+    outline: none;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    height: 4rem;
+    display: inline-block;
+    border: 1px solid $primary;
+    border-radius: 4px;
+    appearance: none;
+
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
+    &:-webkit-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
+    option {
+      padding: 1rem;
+      background-color: transparent;
+      @include fontNormal(1.6rem, 2rem, $grey-c);
+      cursor: pointer;
+    }
+  }
+
+  p.error {
+    margin-top: 1rem;
+    @include fontNormal(1.2rem, 1.8rem, $danger);
+  }
+}
+
+//input checkbox
+.form__checkbox {
+  label {
+    @include fontNormal(1.4rem, 2rem, $primary);
+  }
+}
+input[type='checkbox'] {
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid $primary;
+  margin: 0;
+  font: inherit;
+  color: $primary;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type='checkbox']::before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+  cursor: pointer;
+}
+
+input[type='checkbox']:disabled {
+  --form-control-color: var(--form-control-disabled);
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}

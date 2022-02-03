@@ -1,0 +1,230 @@
+.ms {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mt-xs {
+  margin-top: 1rem;
+}
+
+.mt-sm {
+  margin-top: 2rem;
+}
+
+.mt-md {
+  margin-top: 3rem;
+}
+
+.mt-lg {
+  margin-top: 4rem;
+}
+
+.mt-xl {
+  margin-top: 6rem;
+}
+
+.mb-xs {
+  margin-bottom: 1rem;
+}
+
+.mb-sm {
+  margin-bottom: 2rem;
+}
+
+.mb-md {
+  margin-bottom: 3rem;
+}
+
+.mb-lg {
+  margin-bottom: 4rem;
+}
+
+.mb-xl {
+  margin-bottom: 6rem;
+}
+
+.mr-xs {
+  margin-right: 1rem;
+}
+
+.mr-sm {
+  margin-right: 2rem;
+}
+
+.mr-md {
+  margin-right: 3rem;
+}
+
+.mr-lg {
+  margin-right: 4rem;
+}
+
+.mr-xl {
+  margin-right: 6rem;
+}
+
+.ml-xs {
+  margin-left: 1rem;
+}
+
+.ml-sm {
+  margin-left: 2rem;
+}
+
+.ml-md {
+  margin-left: 3rem;
+}
+
+.ml-lg {
+  margin-left: 4rem;
+}
+
+.ml-xl {
+  margin-left: 6rem;
+}
+
+//Padding
+.p-xl {
+  padding: 6rem;
+}
+
+.pl-xs {
+  padding-left: 1rem;
+}
+
+.pl-sm {
+  padding-left: 2rem;
+}
+
+.pl-md {
+  padding-left: 3rem;
+}
+
+.pl-lg {
+  padding-left: 4rem;
+}
+
+.pl-xl {
+  padding-left: 6rem;
+}
+
+.pt-xs {
+  padding-top: 1rem;
+}
+
+.pt-sm {
+  padding-top: 2rem;
+}
+
+.pt-md {
+  padding-top: 3rem;
+}
+
+.pt-lg {
+  padding-top: 4rem;
+}
+
+.pt-xl {
+  padding-top: 6rem;
+}
+
+.pb-xs {
+  padding-bottom: 1rem;
+}
+
+.pb-sm {
+  padding-bottom: 2rem;
+}
+
+.pb-md {
+  padding-bottom: 3rem;
+}
+
+.pb-lg {
+  padding-bottom: 4rem;
+}
+
+.pb-xl {
+  padding-bottom: 6rem;
+}
+
+//Layout
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+//Colors
+.primary {
+  color: $primary;
+}
+
+.black {
+  color: $black;
+}
+
+//text
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

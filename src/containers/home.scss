@@ -1,0 +1,82 @@
+@import '../styles/abstract/common';
+
+.form__container,
+.books__container {
+  width: 90rem;
+  background-color: $light-grey;
+  background-color: $white;
+  border: 1px solid #eff0f6;
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+.steps {
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      flex-grow: 1;
+
+      &::after {
+        content: '';
+        width: 80%;
+        height: 1px;
+        background-color: $primary;
+        position: absolute;
+        left: 4rem;
+        top: 40%;
+        transform: translateY(-50%);
+      }
+    }
+
+    button {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      @include flexCenter;
+      background-color: $grey-f;
+      @include fontNormal(1.2rem, 1.5rem, $primary);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    p {
+      font-weight: 400;
+      @include fontNormal(1.2rem, 1.5rem, $primary);
+      text-align: left;
+    }
+
+    &.active {
+      button {
+        background-color: $primary;
+        color: $light-grey;
+      }
+
+      p {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: $grey-9;
+    margin-bottom: 1rem;
+  }
+
+  &__actions {
+  }
+}
+
+.basis-48 {
+  flex-basis: 48%;
+}
+
+.circle {
+  height: 12.5rem;
+  width: 12.5rem;
+  border-radius: 50%;
+  @include flexCenter;
+  background-color: #32bea6;
+}
