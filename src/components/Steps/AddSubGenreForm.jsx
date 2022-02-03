@@ -35,14 +35,14 @@ const AddSubGenreForm = () => {
     if (subGenre.name.length < 1) {
       toast.error("Name of subgenre is required");
     } else {
-      const lastId =
-        newBook.genre.subgenres[newBook.genre.subgenres.length - 1].id;
-      let subGenrePayload = {
-        id: lastId + 1,
-        ...subGenre,
-      };
-      await addGenreSubGenre(subGenrePayload);
-      handleStep(2);
+      // const lastId =
+      //   newBook.genre.subgenres[genre.subgenres.length - 1].id;
+      // let subGenrePayload = {
+      //   id: lastId + 1,
+      //   ...subGenre,
+      // };
+      // await addGenreSubGenre(subGenrePayload);
+      // handleStep(2);
     }
   };
 
