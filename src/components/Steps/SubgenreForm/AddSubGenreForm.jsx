@@ -56,6 +56,7 @@ const AddSubGenreForm = () => {
             onChange={onChange}
             type="text"
             required
+            id="new-subgenre"
           ></input>
         </div>
         <label className="flex flex-row align-center mb-sm">
@@ -64,6 +65,7 @@ const AddSubGenreForm = () => {
             value={subGenre.isDescriptionRequired}
             onChange={onChange}
             name="isDescriptionRequired"
+            id="isDescriptionRequired"
           />
           <span className="ml-xs p-title">Description is needed</span>
         </label>
@@ -80,6 +82,7 @@ const AddSubGenreForm = () => {
           onClick={handleSubmit}
           type="submit"
           className="btn btn-primary"
+          data-cy="save-new-subgenre"
         >
           Next
         </button>

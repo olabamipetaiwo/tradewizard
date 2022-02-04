@@ -19,7 +19,7 @@ const SuccessModal = () => {
         </figure>
       </div>
       <h2 className="h-1 mb-lg">Book added successfully</h2>
-      <button className="btn btn-primary" onClick={resetFlow}>
+      <button data-cy="reset-form" className="btn btn-primary" onClick={resetFlow}>
         Add Another Book
       </button>
     </section>

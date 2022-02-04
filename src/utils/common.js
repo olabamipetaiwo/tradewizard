@@ -119,19 +119,4 @@ export const fakeFetch = (value) => {
     console.log("Book Payload", value);
     resolve(value);
   });
-
-  // fetch("/api/v1/save-book", {
-  //   method: "POST",
-  //   body: JSON.stringify({
-  //     value,
-  //   }),
-  //   headers: {
-  //     "Content-type": "application/json; charset=UTF-8",
-  //   },
-  // })
-  //   .then((response) => {
-  //     if (!response.ok) throw Error(response.statusText);
-  //     return value;
-  //   })
-  //   .then((err) => console.log(err.response));
 };
