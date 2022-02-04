@@ -42,6 +42,7 @@ const BookForm = () => {
             <input
               type="text"
               name="title"
+              data-cy="book-title"
               placeholder="Title"
               {...formik.getFieldProps("title")}
             ></input>
@@ -157,6 +158,7 @@ const BookForm = () => {
               placeholder="Description"
               {...formik.getFieldProps("description")}
               required={newBook.subgenre?.isDescriptionRequired ? true : false}
+              data-cy="book-desc"
             ></textarea>
             {formik.touched.description && formik.errors.description ? (
               <p className="error">{formik.errors.description}</p>
@@ -169,7 +171,11 @@ const BookForm = () => {
           <button onClick={moveStep} className="btn btn-outline mr-sm">
             <span>Back</span>
           </button>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            data-cy="add-new-book"
+          >
             {formik.isSubmitting ? "Adding Book" : "Add Book"}
           </button>
         </section>

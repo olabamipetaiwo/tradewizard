@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/aria-role */
 import { Fragment } from "react";
 import toast from "react-hot-toast";
 import useBook from "hooks/useBook";
@@ -24,14 +23,13 @@ const GenreForm = () => {
   return (
     <Fragment>
       <section className="steps__content mb-sm">
-        <section className="flex flex-wrap" data-testid="genre-list">
+        <section className="flex flex-wrap genre-list" data-cy="genre-list">
           {genres.map((item) => {
             return (
               <button
-                role="genre-button"
                 onClick={handleClick.bind(this, item)}
                 key={item.name}
-                data-testid={`genre-item-${item.id}`}
+                data-cy={`genre-item-${item.id}`}
                 className={`btn btn-outline mr-xs mb-sm ${
                   item.id === newBook?.genre?.id ? "active" : ""
                 }`}
@@ -46,7 +44,7 @@ const GenreForm = () => {
           <button
             type="button"
             onClick={moveStep}
-            data-testid="move-step"
+            data-cy="move-step-1"
             className="btn btn-primary"
           >
             Next

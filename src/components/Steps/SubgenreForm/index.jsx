@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import useBook from "hooks/useBook";
 import useStep from "hooks/useStep";
 import { capitalizeFirstWord } from "utils/common";
+import { ReactComponent as CaretIcon } from "assets/caret-left.svg";
 
 const SubGenreForm = () => {
   const { newBook, subgenres, saveBookSubGenre } = useBook();
@@ -27,9 +28,10 @@ const SubGenreForm = () => {
   return (
     <section className="steps__content mb-sm">
       <div className="flex flex-wrap">
-        {subgenres.map((item) => {
+        {subgenres.map((item, index) => {
           return (
             <button
+              data-cy={`subgenre-item-${index}`}
               onClick={handleClick.bind(this, item)}
               key={item.name}
               className={`btn btn-outline mr-xs mb-sm ${
@@ -43,6 +45,7 @@ const SubGenreForm = () => {
         <button
           type="button"
           onClick={showAddSubGenre}
+          data-cy="add-new-subgenre"
           className="btn btn-primary mb-sm"
         >
           Add New
@@ -53,10 +56,17 @@ const SubGenreForm = () => {
         <button
           onClick={() => changeActiveStep(1)}
           className="btn btn-outline mr-sm"
+          data-cy="move-back-2"
         >
-          <span>Back</span>
+          <CaretIcon className="mr-xs" />
+          <span className="flex align-center"> Back </span>
         </button>
-        <button onClick={moveStep} className="btn btn-primary ">
+
+        <button
+          data-cy="move-step-2"
+          onClick={moveStep}
+          className="btn btn-primary "
+        >
           Next
         </button>
       </section>

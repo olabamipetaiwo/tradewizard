@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "extends": ["plugin:cypress/recommended"],
+  "viewportWidth": 1200,
+  "viewportHeight": 660
+}

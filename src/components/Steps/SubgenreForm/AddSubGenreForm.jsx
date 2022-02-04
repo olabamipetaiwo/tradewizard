@@ -2,11 +2,12 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import useBook from "hooks/useBook";
 import useStep from "hooks/useStep";
+import { ReactComponent as CaretIcon } from "assets/caret-left.svg";
 
 const AddSubGenreForm = () => {
   const { subgenres, addGenreSubGenre } = useBook();
   const { changeActiveStep } = useStep();
-  
+
   const [subGenre, setSubGenre] = useState({
     name: "",
     isDescriptionRequired: false,
@@ -56,6 +57,7 @@ const AddSubGenreForm = () => {
             onChange={onChange}
             type="text"
             required
+            id="new-subgenre"
           ></input>
         </div>
         <label className="flex flex-row align-center mb-sm">
@@ -64,6 +66,7 @@ const AddSubGenreForm = () => {
             value={subGenre.isDescriptionRequired}
             onChange={onChange}
             name="isDescriptionRequired"
+            id="isDescriptionRequired"
           />
           <span className="ml-xs p-title">Description is needed</span>
         </label>
@@ -74,12 +77,14 @@ const AddSubGenreForm = () => {
           onClick={handleStep.bind(this, 2)}
           className="btn btn-outline mr-sm"
         >
+          <CaretIcon className="mr-xs" />
           <span>Back</span>
         </button>
         <button
           onClick={handleSubmit}
           type="submit"
           className="btn btn-primary"
+          data-cy="save-new-subgenre"
         >
           Next
         </button>
