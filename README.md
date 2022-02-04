@@ -30,6 +30,7 @@ d. Information
 Git clone the repository via https://github.com/olabamipetaiwo/tradewizard
 Run yarn install to get the neccessary dependencies
 Run yarn dev to start the application
+Run yarn cy-test to run the tests
 
 Approach Taken:
 
@@ -46,6 +47,8 @@ On the last page(Book Form), only the title is required and/or description(depen
 After a book is created, we have book listing component listing only the title of the book and a success modal in which the user can navigate back to the beggining of the form to add another book.
 
 The custom styles are defined in the styles folder and makes use of SCSS classes separated into abstracts,components and fonts.
+
+Wrote Tests with Cypress
 
 Areas to improve upon:
 The design of the application can be improved upon.
