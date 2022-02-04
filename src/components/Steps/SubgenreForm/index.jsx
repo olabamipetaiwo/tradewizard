@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import useBook from "hooks/useBook";
 import useStep from "hooks/useStep";
 import { capitalizeFirstWord } from "utils/common";
+import { ReactComponent as CaretIcon } from "assets/caret-left.svg";
 
 const SubGenreForm = () => {
   const { newBook, subgenres, saveBookSubGenre } = useBook();
@@ -57,7 +58,8 @@ const SubGenreForm = () => {
           className="btn btn-outline mr-sm"
           data-cy="move-back-2"
         >
-          <span>Back</span>
+          <CaretIcon className="mr-xs" />
+          <span className="flex align-center"> Back </span>
         </button>
 
         <button
