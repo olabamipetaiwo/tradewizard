@@ -1,4 +1,4 @@
-This project was is a frontend assesment task for tradecore
+This project  is a frontend assesment task for tradecore
 
 Clone the repo to your local machine
 
