@@ -20,7 +20,7 @@ describe("Renders SubGenre", () => {
     cy.getElem("add-new-subgenre").click();
     cy.get("#new-subgenre").type(randomWord);
     cy.getElem("save-new-subgenre").click();
-    cy.contains(capitalizeFirstWord(randomWord));
+    cy.contains(capitalizeFirstWord(randomWord)).should("be.visible");
   });
 
   it.only("It should create a new subgnre with  name and isDescriotion", () => {
@@ -29,6 +29,6 @@ describe("Renders SubGenre", () => {
     cy.get("#new-subgenre").type(randomWord);
     cy.get("#isDescriptionRequired").check();
     cy.getElem("save-new-subgenre").click();
-    cy.contains(capitalizeFirstWord(randomWord));
+    cy.contains(capitalizeFirstWord(randomWord)).should("be.visible");
   });
 });

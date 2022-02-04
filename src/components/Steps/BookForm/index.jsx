@@ -51,9 +51,13 @@ const BookForm = () => {
               <p className="error">{formik.errors.title}</p>
             ) : null}
           </div>
-          <div className="form__group mb-sm ">
+          <div className="form__group mb-sm">
             <label>Author</label>
-            <select name="author" {...formik.getFieldProps("author")}>
+            <select
+              data-cy="book-author"
+              name="author"
+              {...formik.getFieldProps("author")}
+            >
               <option value="">Select Author</option>
               <option value="author_A">Author A</option>
               <option value="author_B">Author B</option>
@@ -63,9 +67,15 @@ const BookForm = () => {
             ) : null}
           </div>
 
-          <div className="form__group mb-sm" {...formik.getFieldProps("isbn")}>
+          <div className="form__group mb-sm">
             <label>ISBN</label>
-            <input name="isbn" type="text" placeholder="ISBN"></input>
+            <input
+              name="isbn"
+              type="text"
+              data-cy="book-isbn"
+              placeholder="ISBN"
+              {...formik.getFieldProps("isbn")}
+            ></input>
             {formik.touched.isbn && formik.errors.isbn ? (
               <p className="error">{formik.errors.isbn}</p>
             ) : null}
@@ -75,7 +85,7 @@ const BookForm = () => {
             {...formik.getFieldProps("publisher")}
           >
             <label>Publisher</label>
-            <select name="publisher">
+            <select name="publisher" data-cy="book-publisher">
               <option value="">Select Publisher</option>
               <option value="publisher_A">Publisher A</option>
               <option value="publisher_B">Publisher B</option>
@@ -91,8 +101,10 @@ const BookForm = () => {
             <label>Date Published</label>
             <input
               name="date_published"
+              data-cy="book_date_published"
               type="date"
               placeholder="DD/MM/YYYY"
+              className="dateInput"
             ></input>
             {formik.touched.date_published && formik.errors.date_published ? (
               <p className="error">{formik.errors.date_published}</p>
@@ -101,6 +113,7 @@ const BookForm = () => {
           <div className="form__group mb-sm ">
             <label>No of Pages</label>
             <input
+              data-cy="book-pages"
               type="number"
               name="no_of_pages"
               placeholder="Number of Pages"
@@ -112,7 +125,11 @@ const BookForm = () => {
           </div>
           <div className="form__group mb-sm ">
             <label>Format</label>
-            <select name="format" {...formik.getFieldProps("format")}>
+            <select
+              data-cy="book-format"
+              name="format"
+              {...formik.getFieldProps("format")}
+            >
               <option value="">Select Format</option>
               <option value="format_A">Format A</option>
               <option value="format_B">Format B</option>
@@ -127,6 +144,7 @@ const BookForm = () => {
               <input
                 type="text"
                 name="edition"
+                data-cy="book-edition"
                 placeholder="Edition"
                 {...formik.getFieldProps("edition")}
               ></input>
@@ -138,6 +156,7 @@ const BookForm = () => {
               <label>Edition Language</label>
               <select
                 name="edition_language"
+                data-cy="book-edition-language"
                 {...formik.getFieldProps("edition_language")}
               >
                 <option value="">Edition Language</option>
@@ -189,8 +208,7 @@ export default BookForm;
 const BookSchema = Yup.object().shape({
   title: Yup.string().required("Title is Required"),
   author: Yup.string(),
-  isbn: Yup.string(),
-  // .matches(/^[0-9]+$/, "Must be only digits")
+  isbn: Yup.string().matches(/^[0-9]+$/, "Must be only digits"),
   // .min(13, "Isbn must be exactly thirteen digits")
   // .max(13, "Isbn must be exactly thirteen digits"),
   publisher: Yup.string(),
