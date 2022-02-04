@@ -5,24 +5,24 @@ describe("Renders SubGenre", () => {
     cy.visit("/");
   });
 
-  // it.only("It should create a book with title and description", () => {
-  //   let bookName = faker.random.word();
-  //   let bookDesc = faker.random.word();
+  it.only("It should create a book with title and description", () => {
+    let bookName = faker.random.word();
+    let bookDesc = faker.random.word();
 
-  //   cy.getElem("genre-item-1").click();
-  //   cy.getElem("move-step-1").click();
-  //   cy.getElem("subgenre-item-1").click();
-  //   cy.getElem("move-step-2").click();
-  //   cy.getElem("book-title").type(bookName);
-  //   cy.getElem("book-desc").type(bookDesc);
-  //   cy.getElem("add-new-book").click();
-  //   cy.contains("Book added successfully");
-  // });
+    cy.getElem("genre-item-1").click();
+    cy.getElem("move-step-1").click();
+    cy.getElem("subgenre-item-1").click();
+    cy.getElem("move-step-2").click();
+    cy.getElem("book-title").type(bookName);
+    cy.getElem("book-desc").type(bookDesc);
+    cy.getElem("add-new-book").click();
+    cy.contains("Book added successfully");
+  });
 
-  // it.only("It should return  to step 1 after book is created", () => {
-  //   cy.getElem("reset-form").click();
-  //   cy.contains("Genre 1");
-  // });
+  it.only("It should return  to step 1 after book is created", () => {
+    cy.getElem("reset-form").click();
+    cy.contains("Genre 1");
+  });
 
   it.only("It should create a book with all details", () => {
     let bookName = faker.random.word();
